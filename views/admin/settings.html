@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>博客管理-首页</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../node_modules/nprogress/nprogress.css"/>
+    <link rel="stylesheet" href="../../public/admin/css/admin.css"/>
+</head>
+<body>
+<!--侧边栏-->
+<aside class="ad_aside">
+    <!--商标-->
+    <div class="brand"><a href="index.html">博客管理</a></div>
+    <!--用户-->
+    <div class="user">
+        <img src="../../public/admin/images/default.png" alt=""/>
+        <span>托尼阿伦</span>
+    </div>
+    <!--菜单-->
+    <div class="menu">
+        <ul>
+            <li><a href="blogEdit.html"><span class="glyphicon glyphicon-edit"></span> 文章添加</a></li>
+            <li><a href="blogManage.html"><span class="glyphicon glyphicon-list"></span> 文章管理</a></li>
+            <li><a href="settings.html"><span class="glyphicon glyphicon-tags"></span> 个人设置</a></li>
+            <li><a href="repass.html"><span class="glyphicon glyphicon-eye-close"></span> 修改密码</a></li>
+        </ul>
+    </div>
+</aside>
+<!--内容-->
+<section class="ad_section">
+    <!--顶部导航-->
+    <nav class="ad_nav">
+        <a data-menu href="javascript:;"><span class="glyphicon glyphicon-align-justify"></span></a>
+        <a data-logout href="javascript:;"><span class="glyphicon glyphicon-log-out"></span></a>
+    </nav>
+    <div class="container-fluid">
+        <!--路径导航-->
+        <ol class="breadcrumb">
+            <li><a href="#">博客管理</a></li>
+            <li class="active">首页</li>
+        </ol>
+        <div class="ad_content">
+            <div class="settings">
+                <form action="" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">头像</label>
+                        <div class="col-xs-2 preview">
+                            <img src="../../public/admin/images/default.png">
+                            <input type="file" id="upfile">
+                            <div class="cover">
+                                <i class="glyphicon glyphicon-upload"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">用户名</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control input-sm">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">性别</label>
+                        <div class="col-xs-3">
+                            <label class="radio-inline">
+                                <input type="radio" checked> 男
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio"> 女
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">手机号码</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control input-sm">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">就职公司</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control input-sm">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">个人主页</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control input-sm">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">个性签名</label>
+                        <div class="col-xs-5 ckeditor">
+                            <textarea name="" rows="5" class="form-control input-sm"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-8">
+                            <a href="./course_add_step2.html" class="btn btn-success btn-sm pull-right">保 存</a>
+                            <a href="./repass.html" class="btn btn-link btn-sm pull-right">更改密码？</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../node_modules/nprogress/nprogress.js"></script>
+<script src="../../public/admin/js/admin.js"></script>
+</body>
+</html>
