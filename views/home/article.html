@@ -1,206 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>我的博客</title>
-    <link rel="stylesheet" href="../../public/home/css/normalize.css">
-    <link rel="stylesheet" href="../../public/home/css/fonts.css">
-    <link rel="stylesheet" href="../../public/home/css/base.css">
-    <link rel="stylesheet" href="../../public/home/css/main.css">
-</head>
-<body>
-    <div class="viewport">
-        <!-- 头部 -->
-        <header class="header">
-            <div class="wrapper">
-                <!-- 导航 -->
-                <nav>
-                    <a href="index.html">Home</a>
-                    <a href="./about.html">关于我们</a>
-                    <a href="join.html">传智招聘</a>
-                </nav>
-                <!-- 注册/登录 -->
+{{extend './layout/layout.html'}}
+{{block 'main'}}
+<section class="main">
+    <div class="article">
+        <h2 class="title">{{posts.title}}</h2>
+        {{@posts.content}}
+    </div>
+    <!-- 作者 -->
+    <div class="author">
+        <div class="avatar">
+            <a href="/center?id={{posts.uid}}">
+                <img src="{{posts.avatar}}" alt="">
+            </a>
+        </div>
+        <div class="wrap-box">
+            <!-- 个人资料 -->
+            <div class="meta">
+                <h4 class="name">
+                    <a href="/center?id={{posts.uid}}">{{posts.name}}</a>
+                </h4>
+                <p class="intro">{{posts.alt}}</p>
                 <div class="extra">
-                    <a href="register.html">注册</a>
-                    <a href="login.html">登录</a>
+                    <span class="icon-location">{{posts.company}}</span>
+                    <span class="icon-link">
+                        <a href="javascript:;">{{posts.homepage}}</a>
+                    </span>
+                    <span class="icon-weibo">
+                        <a href="javascript:;"> @tony </a>
+                    </span>
                 </div>
             </div>
-        </header>
-        <!-- 主体 -->
-        <div class="body">
-            <div class="wrapper">
-                <!-- 侧边栏 -->
-                <aside>
-                    <!-- 广告位 -->
-                    <div class="widget advert">
-                        <header>赞助商</header>
-                        <div class="cont">
-                            <p>前端学院</p>
-                            <a href="javascript:;">马上报名，即享优惠!</a>
-                        </div>
-                    </div>
-                    <!-- 热门文章 -->
-                    <div class="widget hot">
-                        <header>热门文章</header>
-                        <ul>
-                            <li>
-                                <a href="./article.html">WeUI 发布——微信官方UI库</a>
-                            </li>
-                            <li>
-                                <a href="./article.html">Zen Coding: 一种快速编写HTML/CSS代码的方法</a>
-                            </li>
-                            <li>
-                                <a href="./article.html">QQ浏览器X5内核问题汇总</a>
-                            </li>
-                            <li>
-                                <a href="./article.html">一些必不可少的Sublime Text 2插件</a>
-                            </li>
-                            <li>
-                                <a href="./article.html">高性能 CSS3 动画</a>
-                            </li>
-                            <li>
-                                <a href="./article.html">[Task Master] gulp-lint</a>
-                            </li>
-                            <li>
-                                <a href="./article.html">前端观察又改版</a>
-                            </li>
-                            <li>
-                                <a href="./article.html">HTML5+CSS3 loading 效果收集</a>
-                            </li>
-                            <li>
-                                <a href="./article.html">meta标签常用属性整理</a>
-                            </li>
-                            <li>
-                                <a href="./article.html">HTML5 中 div section article 的区别</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- 执门作者 -->
-                    <div class="widget authors">
-                        <header>热门博主</header>
-                        <ul>
-                            <li>
-                                <a href="center.html">
-                                    <img src="../../public/home/uploads/avatar/tony.jpg" alt="">
-                                    <span>蜗牛托尼</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="center.html">
-                                    <img src="../../public/home/uploads/avatar/monkey.png" alt="">
-                                    <span>程序猿</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="center.html">
-                                    <img src="../../public/home/uploads/avatar/tony.jpg" alt="">
-                                    <span>蜗牛托尼</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="center.html">
-                                    <img src="../../public/home/uploads/avatar/monkey.png" alt="">
-                                    <span>程序猿</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </aside>
-                <section class="main">
-                    <div class="article">
-                        <h2 class="title">One Day</h2>
-                        <p>这几年，前端技术发展很快，每年都有新的技术名词流行，ReactJS、Angular 2、VUE、微信小程序。。。而我重新学习了 swift ，是的，重新学习，之前读过《swift 1.0 从入门到放弃》。</p>
-                        <p>想起当年学习前端开发的经历，我开始写一些实际的小 app 来练手，总算是没有又一次『从入门到放弃』</p>
-                        <p>有一天突然想到，每一天不管开心还是难过，不管是平淡还是难忘，都要过的有意义——从来不写日记的我第一次想每天花几分钟记录一下自己的一天了。（日记？上个世纪的东西了吧？！）</p>
-                        <p>于是就尝试了各种 app，记事类的、日记类的。却发现每个 app 都想做的很完美，带上各种功能，需要的不需要的全都有，干扰的东西太多。。。</p>
-                        <p>我只想一个单纯的记录自己每一天的 app，几张图片，一段文字，最多再加上一个地理位置，嗯，真实的自己，只有自己能看到，也不用担心有没有人点赞。</p>
-                        <p>干脆就自己用 swift 写一个吧：One Day.</p>
-                        <p>有一天正在听最喜欢的《One Day》，嗯，海贼王中艾斯被行刑的那一段的主题曲，这段剧情也是海贼王中给我感受最深的一段。于是 App 的名字就叫 One Day 了。</p>
-                        <p>One Day 的目标就只有一个：记录『最真实的自己』。所以从一开始就完全抛弃了社交和分享的功能。</p>
-                    </div>
-                    <!-- 作者 -->
-                    <div class="author">
-                        <div class="avatar">
-                            <a href="center.html">
-                                <img src="../../public/home/uploads/avatar/monkey.png" alt="">
-                            </a>
-                        </div>
-                        <div class="wrap-box">
-                            <!-- 个人资料 -->
-                            <div class="meta">
-                                <h4 class="name">
-                                    <a href="center.html">蜗牛托尼</a>
-                                </h4>
-                                <p class="intro">爱好前端设计与开发，崇尚一目了然的设计。现居深圳/广州，就职于腾讯微信设计团队。</p>
-                                <div class="extra">
-                                    <span class="icon-location"> 北京. 传智播客</span>
-                                    <span class="icon-link">
-                                        <a href="javascript:;">http://tony.com</a>
-                                    </span>
-                                    <span class="icon-twitter">
-                                        <a href="javascript:;"> @tony</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <!-- 社区 -->
-                            <div class="social">
-                                <h4>分享</h4>
-                                <a href="javascript:;" class="icon-twitter"></a>
-                                <a href="javascript:;" class="icon-facebook"></a>
-                                <a href="javascript:;" class="icon-weibo"></a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+            <!-- 社区 -->
+            <div class="social">
+                <h4>分享</h4>
+                <a href="javascript:;" class="icon-twitter"></a>
+                <a href="javascript:;" class="icon-facebook"></a>
+                <a href="javascript:;" class="icon-weibo"></a>
             </div>
         </div>
-        <!-- 底部 -->
-        <footer class="footer">
-            <div class="wrapper">
-                <dl>
-                    <dt>合作网站</dt>
-                    <dd>
-                        <a href="javascript:;">传智播客</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">双元课堂</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">传智学院</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">博学谷在线教育平台</a>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt>友情链接</dt>
-                    <dd>
-                        <a href="javascript:;">Swift Note GaoWhen高H温</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">大猫の意淫网志 裁纸刀下</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">Smallni's blog 米随随s5s5</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">芒果 软件开发网 觉唯前端</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">JSER CSS HOUSE Time Machine</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">前端博客导航 WEB前端开发</a>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt>关注我的博客</dt>
-                    <dd>
-                        <img class="qrcode" src="../../public/home/images/qrcode.jpg" alt="">
-                    </dd>
-                </dl>
-            </div>
-        </footer>
     </div>
-</body>
-</html>
+</section>
+{{/block}}

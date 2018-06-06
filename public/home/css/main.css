@@ -131,10 +131,21 @@
     float: right;
 }
 
+.body .pagination a.disabled{
+    background: #ccc;
+    cursor: no-drop;
+}
+
 /*文章*/
 .body .main .article {
     padding: 24px;
     background-color: #FFF;
+    word-break: break-all;
+}
+
+.body .main .article pre{
+    white-space: pre-wrap;
+    line-height: 1.5;
 }
 
 .body .main .article .title {

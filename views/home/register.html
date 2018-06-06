@@ -1,115 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>我的博客</title>
-    <link rel="stylesheet" href="../../public/home/css/normalize.css">
-    <link rel="stylesheet" href="../../public/home/css/fonts.css">
-    <link rel="stylesheet" href="../../public/home/css/base.css">
-    <link rel="stylesheet" href="../../public/home/css/main.css">
-</head>
-<body>
-    <div class="viewport">
-        <!-- 头部 -->
-        <header class="header">
-            <div class="wrapper">
-                <!-- 导航 -->
-                <nav>
-                    <a href="./index.html">Home</a>
-                    <a href="./about.html">关于我们</a>
-                    <a href="./join.html">传智招聘</a>
-                </nav>
-                <!-- 注册/登录 -->
-                <div class="extra">
-                    <a href="./register.html">注册</a>
-                    <a href="./login.html">登录</a>
-                </div>
-            </div>
-        </header>
-        <!-- 主体 -->
-        <div class="body">
-            <!-- 登录 -->
-            <div class="login">
-                <div class="wrapper">
-                    <div class="contact">
-                        <p>有什么问题可以点击下方联系</p>
-                        <img src="../../public/home/images/email.png" alt="">
-                    </div>
-                    <form action="">
-                        <ul>
-                            <li>
-                                <label for="">用户名:</label>
-                                <input type="text">
-                            </li>
-                            <li>
-                                <label for="">邮　箱:</label>
-                                <input type="text">
-                            </li>
-                            <li>
-                                <label for="">密　码:</label>
-                                <input type="password">
-                            </li>
-                            <li>
-                                <label for="">确认密码:</label>
-                                <input type="password">
-                            </li>
-                            <li>
-                                <label for=""></label>
-                                <input type="submit" value="登 录">
-                                <a href="javascript:;">忘记密码？</a>
-                            </li>
-                        </ul>
-                    </form>
-                </div>
-            </div>
+{{extend './layout/form.html'}}
+{{block 'container'}}
+<div class="login">
+    <div class="wrapper">
+        <div class="contact">
+            <p>有什么问题可以点击下方联系</p>
+            <img src="../../public/home/images/email.png" alt="">
         </div>
-        <!-- 底部 -->
-        <footer class="footer">
-            <div class="wrapper">
-                <dl>
-                    <dt>合作网站</dt>
-                    <dd>
-                        <a href="javascript:;">传智播客</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">双元课堂</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">传智学院</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">博学谷在线教育平台</a>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt>友情链接</dt>
-                    <dd>
-                        <a href="javascript:;">Swift Note GaoWhen高H温</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">大猫の意淫网志 裁纸刀下</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">Smallni's blog 米随随s5s5</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">芒果 软件开发网 觉唯前端</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">JSER CSS HOUSE Time Machine</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:;">前端博客导航 WEB前端开发</a>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt>关注我的博客</dt>
-                    <dd>
-                        <img class="qrcode" src="../../public/home/images/qrcode.jpg" alt="">
-                    </dd>
-                </dl>
-            </div>
-        </footer>
+        <form>
+            <ul>
+                <li>
+                    <label for="name">用户名:</label>
+                    <input id="name" name="name" type="text">
+                </li>
+                <li>
+                    <label for="email">邮　箱:</label>
+                    <input id="email" name="email" type="text">
+                </li>
+                <li>
+                    <label for="pass">密　码:</label>
+                    <input id="pass" name="pass" type="password">
+                </li>
+                <li>
+                    <label for="repass">确认密码:</label>
+                    <input id="repass" name="repass" type="password">
+                </li>
+                <li>
+                    <label></label>
+                    <input type="submit" value="注  册">
+                    <a href="javascript:;">忘记密码？</a>
+                </li>
+            </ul>
+        </form>
     </div>
-</body>
-</html>
+</div>
+{{/block}}
+{{block 'script'}}
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    $('form').on('submit',function (e) {
+        e.preventDefault();
+        $.ajax({
+            type:'post',
+            url:'/register',
+            data:$('form').serialize(),
+            dataType:'json',
+            success:function (data) {
+                if(data.success){
+                    alert('注册成功，立即登录？');
+                    location.href = '/login';
+                }
+            }
+        });
+    })
+</script>
+{{/block}}
