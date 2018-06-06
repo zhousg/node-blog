@@ -50,16 +50,38 @@ exports.find = (id, cb) => {
 }
 
 // 更新用户信息
-exports.update = (body, cb) => {
+exports.repass = (body, cb) => {
+    if(md5(body.oldPass) != body.sessionPass){
+        return cb({msg:'原密码不对'})
+    }
+
+    if(body.pass != body.repass){
+        return cb({msg:'密码不一致'})
+    }
+
+    delete body.repass;
+    delete body.sessionPass;
+    delete body.oldPass;
+
+    body.pass = md5(body.pass);
 
     let sql = 'UPDATE users SET ? WHERE id=?';
 
-    //
-    let id = body.id;
+    db.query(sql, [body, body.id], (err) => {
+        if (!err) {
+            return cb(null);
+        }
 
-    delete body.id;
+        cb({msg: '更新用户信息失败'});
+    })
+}
 
-    db.query(sql, [body, id], (err) => {
+exports.settings = (body, cb) => {
+
+    let sql = 'UPDATE users SET ? WHERE id=?';
+
+    db.query(sql, [body, body.id], (err) => {
+        console.log(err);
         if (!err) {
             return cb(null);
         }

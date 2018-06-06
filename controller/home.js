@@ -4,7 +4,6 @@ const users = require('../model/users');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    console.log(global.user);
     let pageNow = req.query.page || 1;
     let pageSize = 4;
     posts.findAll(pageNow, pageSize, (err, list) => {

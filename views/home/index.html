@@ -10,7 +10,7 @@
         </header>
         <!-- 博客信息 -->
         <div class="post-meta">
-            <img src="{{$value.avatar}}" alt="">
+            <img src="{{$value.avatar||'/public/home/images/default.png'}}" alt="">
             <a href="/center?id={{$value.uid}}">{{$value.name}}</a>
             <span>{{$imports.moment($value.time).format('YYYY-MM-DD HH:mm:ss')}}</span>
         </div>

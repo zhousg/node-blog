@@ -59,7 +59,7 @@ exports.delete = (id, cb) => {
 
         cb(err);
     });
-}
+};
 
 // 新增
 exports.insert = (body, cb) => {
@@ -85,6 +85,26 @@ exports.find = (id, cb) => {
             return cb(null, rows[0]);
         }
 
+        cb(err);
+    })
+}
+
+// 根据文章id查询
+exports.findAllByTitle = (params, cb) => {
+    console.log(params);
+    let sql = 'SELECT * FROM posts WHERE status = 0';
+
+    if (params.id) {
+        sql += ' AND uid = ' + params.id;
+    }
+    if (params.title) {
+        sql += ' AND title LIKE "%' + params.title + '%"';
+    }
+
+    db.query(sql, (err, rows) => {
+        if (!err) {
+            return cb(null, rows);
+        }
         cb(err);
     })
 }
