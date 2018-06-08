@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>博客管理</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/node_modules/nprogress/nprogress.css"/>
+    <link rel="stylesheet" href="/public/admin/css/admin.css"/>
+</head>
+<body>
+<!--侧边栏-->
+<aside class="ad_aside">
+    <!--商标-->
+    <div class="brand"><a href="/admin">博客管理</a></div>
+    <!--用户-->
+    <div class="user">
+        <img src="/public/admin/images/default.png" alt=""/>
+        <span>托尼阿伦</span>
+    </div>
+    <!--菜单-->
+    <div class="menu">
+        <ul>
+            <li data-cd-type="blogAdd"><a href="/admin/blog/push"><span class="glyphicon glyphicon-edit"></span> 文章添加</a></li>
+            <li data-cd-type="blogList"><a href="/admin/blog/list"><span class="glyphicon glyphicon-list"></span> 文章管理</a></li>
+            <li data-cd-type="settings"><a href="/admin/settings"><span class="glyphicon glyphicon-tags"></span> 个人设置</a></li>
+            <li data-cd-type="repass"><a href="/admin/repass"><span class="glyphicon glyphicon-eye-close"></span> 修改密码</a></li>
+            <li><a href="/"><span class="glyphicon glyphicon-home"></span> 返回首页</a></li>
+        </ul>
+    </div>
+</aside>
+<!--内容-->
+<section class="ad_section">
+    <!--顶部导航-->
+    <nav class="ad_nav">
+        <a data-menu href="javascript:;"><span class="glyphicon glyphicon-align-justify"></span></a>
+        <a data-logout href="/logout"><span class="glyphicon glyphicon-log-out"></span></a>
+    </nav>
+    <div class="container-fluid">
+        <!--路径导航-->
+        <ol class="breadcrumb">
+            {{block 'bread'}}
+            <li><a href="/admin">博客管理</a></li>
+            <li class="active">首页</li>
+            {{/block}}
+        </ol>
+        <div class="ad_content">
+            {{block 'content'}}
+            <div class="jumbotron">
+                <h1>欢迎来到您的博客管理平台！</h1>
+            </div>
+            {{/block}}
+        </div>
+    </div>
+</section>
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/node_modules/nprogress/nprogress.js"></script>
+<script src="/public/admin/js/admin.js"></script>
+{{block 'script'}}{{/block}}
+</body>
+</html>
