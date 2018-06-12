@@ -46,6 +46,8 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+    if (!req.body.email) return res.json({msg: '请输入邮箱'});
+    if (!req.body.pass) return res.json({msg: '请输入密码'});
     users.auth(req.body, (err, user) => {
         if (!err) {
             global.user = req.session.user = user;
@@ -65,6 +67,11 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
+    if (!req.body.name) return res.json({msg: '请输入用户名'});
+    if (!req.body.email) return res.json({msg: '请输入邮箱'});
+    if (!req.body.pass) return res.json({msg: '请输入密码'});
+    if (!req.body.repass) return res.json({msg: '请再次输入密码'});
+    if (req.body.repass !== req.body.pass) return res.json({msg: '两次密码不一致'});
     users.insert(req.body, (err) => {
         if (!err) return res.json({success: true});
         res.json(err);

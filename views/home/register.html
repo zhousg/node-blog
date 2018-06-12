@@ -48,6 +48,8 @@
                 if(data.success){
                     alert('注册成功，立即登录？');
                     location.href = '/login';
+                }else{
+                    alert(data.msg);
                 }
             }
         });
