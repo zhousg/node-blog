@@ -91,7 +91,6 @@ exports.find = (id, cb) => {
 
 // 根据文章id查询
 exports.findAllByTitle = (params, cb) => {
-    console.log(params);
     let sql = 'SELECT * FROM posts WHERE status = 0';
 
     if (params.id) {

@@ -81,7 +81,6 @@ exports.settings = (body, cb) => {
     let sql = 'UPDATE users SET ? WHERE id=?';
 
     db.query(sql, [body, body.id], (err) => {
-        console.log(err);
         if (!err) {
             return cb(null);
         }
