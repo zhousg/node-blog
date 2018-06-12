@@ -5,6 +5,7 @@ const session = require('express-session');
 const favicon = require('express-favicon');
 const bodyParser = require('body-parser');
 const moment = require('moment');
+const logger = require('morgan');
 
 const config = require('./config');
 const homeRouter = require('./controller/home');
@@ -13,6 +14,9 @@ const adminRouter = require('./controller/admin');
 //启动服务
 let app = express();
 app.listen(config.app.port, () => console.log('blog server startup prot ' + config.app.port));
+
+//配置日志
+app.use(logger('dev'));
 
 //配置网站小图标
 app.use(favicon(path.join(__dirname, '/favicon.ico')));
