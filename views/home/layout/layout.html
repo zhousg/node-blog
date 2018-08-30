@@ -21,7 +21,7 @@
             </nav>
             <!-- 注册/登录 -->
             <div class="extra">
-                {{if $imports.getUser()}}
+                {{if rsUser}}
                 <a href="/admin">管理博客</a>
                 <a href="/logout">退出</a>
                 {{else}}

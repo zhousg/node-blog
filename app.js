@@ -28,12 +28,7 @@ app.use('/public', express.static('./public'));
 //配置模板引擎
 app.engine('html', artTemplate);
 app.set('view options', {
-    imports: {
-        moment: moment,
-        getUser: () => {
-            return global.user;
-        }
-    },
+    imports: {moment},
 });
 
 //配置post请求数据解析
@@ -46,8 +41,17 @@ app.use(session({
     saveUninitialized: true
 }));
 
+const joinSessionUser = (req,res,next)=>{
+    const render = res.render;
+    //覆盖
+    res.render = (url,data)=>{
+        render(url,Object.assign(data||{},{rsUser:req.session.user}));
+    };
+    next();
+};
+
 //配置前台展示模块路由
-app.use(homeRouter);
+app.use(joinSessionUser,homeRouter);
 
 //配置后台管理模块路由
 app.use('/admin', function (req, res, next) {
@@ -56,6 +60,6 @@ app.use('/admin', function (req, res, next) {
         return res.redirect('/login');
     }
     next();
-}, adminRouter);
+}, joinSessionUser,adminRouter);
 
 
