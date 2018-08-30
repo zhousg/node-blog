@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     let pageSize = 4;
     posts.findAll(pageNow, pageSize, (err, list) => {
         posts.findCount((err, count) => {
-            res.render('home/index.html', {
+            res.renderMy('home/index.html', {
                 list,
                 pageNow,
                 pageCount: Math.ceil(count / pageSize)
@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 
 router.get('/article', (req, res) => {
     posts.detail(req.query.id, (err, posts) => {
-        res.render('home/article.html', {posts});
+        res.renderMy('home/article.html', {posts});
     });
 });
 
@@ -42,7 +42,7 @@ router.get('/center', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    res.render('home/login.html');
+    res.renderMy('home/login.html');
 });
 
 router.post('/login', (req, res) => {
@@ -63,7 +63,7 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/register', (req, res) => {
-    res.render('home/register.html');
+    res.renderMy('home/register.html');
 });
 
 router.post('/register', (req, res) => {
@@ -79,11 +79,11 @@ router.post('/register', (req, res) => {
 });
 
 router.get('/join', (req, res) => {
-    res.render('home/join.html');
+    res.renderMy('home/join.html');
 });
 
 router.get('/about', (req, res) => {
-    res.render('home/about.html');
+    res.renderMy('home/about.html');
 });
 
 module.exports = router;

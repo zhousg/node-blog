@@ -42,10 +42,8 @@ app.use(session({
 }));
 
 const joinSessionUser = (req,res,next)=>{
-    const render = res.render;
-    //覆盖
-    res.render = (url,data)=>{
-        render(url,Object.assign(data||{},{rsUser:req.session.user}));
+    res.renderMy = (url,data)=>{
+        res.render(url,Object.assign(data||{},{rsUser:req.session.user}));
     };
     next();
 };

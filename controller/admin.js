@@ -5,7 +5,7 @@ const path = require('path');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('admin/index.html');
+    res.renderMy('admin/index.html');
 });
 
 router.get('/blog/list', (req, res) => {
@@ -14,12 +14,12 @@ router.get('/blog/list', (req, res) => {
         id: req.session.user.id,
         title
     }, (err, rows) => {
-        res.render('admin/blogManage.html', {rows, title});
+        res.renderMy('admin/blogManage.html', {rows, title});
     });
 });
 
 router.get('/blog/push', (req, res) => {
-    res.render('admin/blogEdit.html', {posts: {}});
+    res.renderMy('admin/blogEdit.html', {posts: {}});
 });
 
 router.post('/blog/push', (req, res) => {
@@ -33,7 +33,7 @@ router.post('/blog/push', (req, res) => {
 });
 router.get('/blog/edit/:id', (req, res) => {
     posts.find(req.params.id, (req, posts) => {
-        res.render('admin/blogEdit.html', {posts});
+        res.renderMy('admin/blogEdit.html', {posts});
     });
 });
 router.post('/blog/edit', (req, res) => {
@@ -53,7 +53,7 @@ router.get('/blog/del/:id', (req, res) => {
 });
 
 router.get('/repass', (req, res) => {
-    res.render('admin/repass.html');
+    res.renderMy('admin/repass.html');
 });
 router.post('/repass', (req, res) => {
     req.body.id = req.session.user.id;
@@ -68,7 +68,7 @@ router.post('/repass', (req, res) => {
 });
 
 router.get('/settings', (req, res) => {
-    res.render('admin/settings.html', {user: req.session.user});
+    res.renderMy('admin/settings.html', {user: req.session.user});
 });
 
 router.post('/settings', (req, res) => {
